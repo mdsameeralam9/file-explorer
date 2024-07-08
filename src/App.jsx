@@ -1,6 +1,6 @@
-import { useState } from 'react'
-import './App.css'
-import FileExplorer from './components/Pages/FileExplorer'
+import './App.scss'
+import FileExplorer from './components/FileExplorer/FileExplorer'
+
 
 function App() {
   return (
