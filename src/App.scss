@@ -13,6 +13,10 @@ body{
   display: flex;
   align-items: center;
 }
+.fileCollapse-component{
+  display: flex;
+  flex-direction: column;
+}
 
 .file-explorer{
   background: rgba(184, 228, 243, 0.219);
@@ -54,3 +58,13 @@ body{
   padding-right: 5px;
 }
 
+.file-and-folder{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  background: paleturquoise;
+  gap: 3px;
+  padding-left: 10px;
+  margin: 2px 0;
+  cursor: pointer;
+}
