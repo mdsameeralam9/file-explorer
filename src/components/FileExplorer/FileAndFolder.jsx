@@ -4,14 +4,23 @@ import { IoIosFolderOpen } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
-const FileAndFolder = ({ data = {} }) => {
+const FileAndFolder = ({ data={}, insertNode=()=>{}, rednderInput=false }) => {
   const [isFolderOpen, setIsFolderOpen] = useState(false);
+  const [currentSelected, setCurrentSelected] = useState(null);
+
+  const openCurrentFolder = (fileData) => {
+    setCurrentSelected(fileData);
+    setIsFolderOpen(prev => !prev);
+    insertNode(fileData)
+  }
+
+ 
   
   return (
     <Fragment>
       <div
         className={`file-and-folder`}
-        onClick={() => setIsFolderOpen((prev) => !prev)}
+        onClick={() => openCurrentFolder(data)}
       >
         {data.isFolder && (
           <span>
@@ -19,8 +28,10 @@ const FileAndFolder = ({ data = {} }) => {
           </span>
         )}
         <span>{data.isFolder ? <IoIosFolderOpen /> : <FaFile />}</span>
-        <span>{data.name}</span>
+        <span className={`${data.id === currentSelected?.id ? "selectedFolder" : ""}`}>{data.name}</span>
       </div>
+
+      {rednderInput && <input />}
 
       {isFolderOpen &&
         data?.items?.length > 0 &&
@@ -33,3 +44,5 @@ const FileAndFolder = ({ data = {} }) => {
 };
 
 export default FileAndFolder;
+
+//https://github.com/lukasbach/react-complex-tree
