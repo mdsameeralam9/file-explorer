@@ -31,14 +31,20 @@ const FileAndFolder = ({ data={}, insertNode=()=>{}, rednderInput=false }) => {
         <span className={`${data.id === currentSelected?.id ? "selectedFolder" : ""}`}>{data.name}</span>
       </div>
 
-      {rednderInput && <input />}
+    
 
       {isFolderOpen &&
-        data?.items?.length > 0 &&
+       <>
+       { data?.items?.length > 0 &&
         <div style={{paddingLeft: "20px"}}>
         {data.items.map((item) => <FileAndFolder data={item} key={item.id} />)}
-        </div>
+        </div>}
+
+         {rednderInput && <input />}
+        </>
       }
+
+
     </Fragment>
   );
 };
@@ -46,3 +52,5 @@ const FileAndFolder = ({ data={}, insertNode=()=>{}, rednderInput=false }) => {
 export default FileAndFolder;
 
 //https://github.com/lukasbach/react-complex-tree
+
+// https://github.com/piyush-eon/frontend-interview-questions/blob/master/reactjs-interview-questions/file-explorer/src/components/Folder.js

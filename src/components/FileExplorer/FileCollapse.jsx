@@ -20,7 +20,7 @@ const FileCollapse = () => {
 
     setShowInput(true)
     let newObj = {
-      id: Math.random(1)*1000,
+      id: Math.random()*1000,
       name: 'newAction',
       isFolder: type === "folder",
       items: []
